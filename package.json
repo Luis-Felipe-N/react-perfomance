@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "server": "json-server -d 750 -w -p 3333 ./server.js",
     "lint": "next lint"
   },
   "dependencies": {
+    "json-server": "^0.17.0",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
