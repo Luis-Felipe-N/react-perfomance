@@ -6,12 +6,22 @@ interface IProductItemProps {
         title: string;
         price: number
     }
+
+    addItemInCart: (id: number) => void
 }
 
-function ProductComponent({product}: IProductItemProps) {
+function ProductComponent({product, addItemInCart}: IProductItemProps) {
     return (
-        <div>
+        <div
+            
+        >
             {product.title} - <strong>{product.price}</strong>
+
+            <button 
+                onClick={() => addItemInCart(product.id)}
+            >
+                Adicionar ao carrinho
+            </button>
         </div>
     )
 }

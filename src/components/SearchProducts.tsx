@@ -7,9 +7,11 @@ interface ISearchProductsProps {
         price: number;
         title: string;
     }[]
+
+    addItemInCart: (id: number) => void;
 }
 
-export function SearchProducts({results}: ISearchProductsProps) {
+export function SearchProducts({results, addItemInCart}: ISearchProductsProps) {
     const totalPrice = useMemo(() => {
         return results.reduce((total, product) => {
             return total + product.price
@@ -21,11 +23,11 @@ export function SearchProducts({results}: ISearchProductsProps) {
     return (
         <div>
 
-        <h2>{ totalPrice }</h2>
+        <h2>Preço total: { totalPrice }</h2>
 
         {results && results.map(item => (
             <li key={item.id}>
-                <ProductItem product={item} />
+                <ProductItem product={item} addItemInCart={addItemInCart} />
             </li>
         ))}
         </div>
